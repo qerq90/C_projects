@@ -8,16 +8,10 @@ int main() {
     printf("Введите shift length array:\n");
     scanf("%d %d", &shift, &length);
 
-    if(length == 0)
+    if(length <= 0)
     {
-        printf("Пустой массив\n");
-        return -1;
-    }
-
-    if(length < 0)
-    {
-        printf("Некорректная длина\n");
-        return -1;
+        printf(" ");
+        return 0;
     }
 
     int *arr = (int *) malloc(sizeof(int) * length);
