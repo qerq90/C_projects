@@ -2,23 +2,34 @@
 #include <stdlib.h>
 #include <string.h>
 
-int get_length(int * arr)
+int leftMoreThanRight(unsigned char *string1, unsigned char *string2)
 {   
     int i = 0;
-    while(*(arr + i)) i++;
-    return i;
+
+    while(*(string1 + i) && *(string2 + i))
+    {
+        if(*(string1 + i) < *(string2 + i))
+        {
+            return 0;
+        }
+
+        if(*(string1 + i) > *(string2 + i))
+        {
+            return 1;
+        }
+
+        i++;
+    }
+
+    return -1;
 }
 
 int main()
 {
-    int * arr = calloc(100, sizeof(int));
-
-    for(int i = 0; i < 10; i++)
-    {
-        *(arr + i) = i+1;
-    }
-
-    printf("%d \n", get_length(arr));
+    char string[] = "лбвгд";
+    char string2[] = "ла";
+    
+    printf("%d \n", leftMoreThanRight(string, string2));
 
     return 0;
 }
